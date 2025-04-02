@@ -84,4 +84,3 @@ was_contacted_before:
 
 y:
   target: true
-  bool: true

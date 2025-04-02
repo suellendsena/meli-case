@@ -130,7 +130,7 @@ Organização do projeto
     │   │   └── build_features.py
     │   │   └── create_encoders.py
     │   │   └── feature_selection.py
-    │   │   └── selected               <- Contém os arquivos de features selecionadas.
+    │   │   └── selected                <- Contém os arquivos de features selecionadas.
     │   │
     │   ├── models                      <- Scripts relacionados à modelagem.
     │   │   └── generate_artifacts.py
@@ -140,9 +140,9 @@ Organização do projeto
     │   └── utils                       <- Funções auxiliares internas do projeto.
     │
     └── models                          <- Modelos treinados e serializados 
-        └── encoders                   <- Encoders utilizados no pipeline.
-        └── predictors                 <- Modelos preditivos salvos.
-        └── wrapped                    <- Artefatos finais prontos para uso.
+        └── encoders                    <- Encoders utilizados no pipeline.
+        └── predictors                  <- Modelos preditivos salvos.
+        └── wrapped                     <- Artefatos finais prontos para uso.
 
 
 --------

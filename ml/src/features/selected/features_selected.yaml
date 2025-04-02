@@ -1,6 +1,6 @@
 rejected_boruta:
 - day_of_week
-- education
+- employment_status
 - housing
 - loan
 - marital
@@ -12,8 +12,8 @@ support_boruta:
 - contact
 - contacts_tendency
 - default
+- education
 - emp.var.rate
-- employment_status
 - euribor3m
 - job
 - month

@@ -20,7 +20,7 @@ def objective_lgbm(trial, X_train, y_train):
     params_grid = {
             'n_estimators': trial.suggest_int('n_estimators', 50, 500),
             'learning_rate': trial.suggest_loguniform('learning_rate', 1e-3, 1e-1),
-            'max_depth': trial.suggest_int('max_depth', 3, 6),
+            'max_depth': trial.suggest_int('max_depth', 3, 8),
             'min_child_samples': trial.suggest_int('min_child_samples', 5, 100),
             'num_leaves': trial.suggest_int('num_leaves', 10, 100),
             'class_weight': trial.suggest_categorical('class_weight', [None, 'balanced']),

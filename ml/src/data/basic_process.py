@@ -22,6 +22,9 @@ def main():
     df = df.drop_duplicates()
     logger.info(f'Linhas duplicadas removidas. Shape: {df.shape}.')
 
+    logger.info("Ajustando target para booleano.")
+    df["y"] = (df["y"]=="yes").astype(int).fillna(0)
+
     logger.info("Ajustando valores da coluna 'default'.")
     if 'default' in df.columns:
         df['default'] = df['default'].replace({'yes': 'unknown'})

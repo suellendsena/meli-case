@@ -15,7 +15,7 @@ warnings.filterwarnings('ignore')
 @click.command()
 @click.option('--configfile', default='feature_config.yaml', help='Arquivo descritivo das features', type=str)
 @click.option('--dataset_name', default='train_encoded.csv', help='Nome do dataset de treino encodado', type=str)
-@click.option('--model_type', default='xgboost', type=click.Choice(['xgboost', 'lgbm']), help='Tipo de modelo: xgboost ou lgbm')
+@click.option('--model_type', default='lgbm', type=click.Choice(['xgboost', 'lgbm']), help='Tipo de modelo: xgboost ou lgbm')
 def main(configfile, dataset_name, model_type):
     """Encontra os melhores hiperparâmetros para o treinamento do modelo."""
 

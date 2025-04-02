@@ -62,6 +62,7 @@ def main(configfile, dataset_name):
         verbose=2,
         random_state=98,
         max_iter=40,
+        alpha=0.01
     )
 
     feature_target = find_specific_variables(features, 'target', specific_value=True)

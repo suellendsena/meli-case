@@ -31,8 +31,7 @@ def main(configfile, dataset_name):
     features = yaml.safe_load(open(os.path.join('src', 'config', configfile), 'r'))
     feature_target = find_specific_variables(features, 'target', specific_value=True)
 
-    # <- linha movida: salva o target antes do seletor 2
-    target_series = df[feature_target].squeeze().map({'no': 0, 'yes': 1})
+    target_series = df[feature_target]
 
     try:
         feature_fs = yaml.safe_load(open(os.path.join('src', 'features', 'selected', 'features_selected.yaml')))
