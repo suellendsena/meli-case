@@ -22,6 +22,10 @@ def main():
     df = df.drop_duplicates()
     logger.info(f'Linhas duplicadas removidas. Shape: {df.shape}.')
 
+    logger.info('Tratando target e valores nulos')
+    df["y"] = (df["y"]=="yes").astype(int)
+    df["y"] = df["y"].fillna(0)
+
     logger.info("Salvando a base interim.")
     path_output = os.path.join('data', 'interim', f'meli_interim.csv')
     df.to_csv(path_output, index=False)

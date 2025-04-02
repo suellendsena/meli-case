@@ -7,7 +7,7 @@ import click
 from sklearn.ensemble import RandomForestClassifier
 from boruta import BorutaPy
 
-from utils.transformers import Grouper, NormalizeLowerString, BoolHandler
+from utils.transformers import BoolHandler
 from utils.training_utils import find_specific_variables, get_features_attribute
 
 import warnings

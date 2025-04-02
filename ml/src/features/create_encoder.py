@@ -9,7 +9,7 @@ import click
 
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OrdinalEncoder
-from utils.transformers import Selector, Grouper, FillStringMissing, NormalizeLowerString, BoolHandler, FillNull, ConverteFloat
+from utils.transformers import Selector, FillStringMissing, NormalizeLowerString, BoolHandler, FillNull, ConverteFloat
 from utils.training_utils import find_specific_variables, get_features_attribute
 
 import warnings
@@ -83,16 +83,6 @@ def main(configfile, dataset_name):
     normalize_lower_string = NormalizeLowerString(cols_to_adjust=cols_string_to_normalize)
     df = normalize_lower_string.transform(df)
 
-    features_to_group = find_specific_variables(features, 'feature_to_group')
-    has_grouper = (len(set(features_to_group) & set(features_selected)) > 0)
-    if has_grouper:
-        logger.info('Processando o objeto Grouper')
-        features_to_group_dict = get_features_attribute(features, attribute='feature_to_group')
-        features_to_group_remaining = {k: v for k, v in features_to_group_dict.items() if k in features_selected}
-        logger.info(f'Features a serem agrupadas: {features_to_group_remaining}')
-        grouper = Grouper(features_to_group=features_to_group_remaining)
-        df = grouper.fit_transform(df)
-
     logger.info(f'Colunas strings identificadas: {colunas_string}')
     logger.info('Processando o objeto de codificação')
     encoder = ColumnTransformer(
@@ -116,8 +106,6 @@ def main(configfile, dataset_name):
     pickle.dump(bool_handler, open('models/encoders/bool_handler.pkl', 'wb'))
     pickle.dump(fill_string_missing, open('models/encoders/fill_string_missing.pkl', 'wb'))
     pickle.dump(normalize_lower_string, open('models/encoders/normalize_lower_string.pkl', 'wb'))
-    if has_grouper:
-        pickle.dump(grouper, open('models/encoders/grouper.pkl', 'wb'))
     pickle.dump(encoder, open('models/encoders/encoder.pkl', 'wb'))
     pickle.dump(conversor_float, open('models/encoders/conversor_float.pkl', 'wb'))
 

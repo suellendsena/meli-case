@@ -169,27 +169,6 @@ class FillNull:
     def transform(self, X):
         X.loc[:, self.cols_to_adjust] = X.loc[:, self.cols_to_adjust].fillna(-999)
         return X
-    
-
-
-class Grouper:
-    def __init__(self, features_to_group):
-        self.features_to_group=features_to_group
-        self.categ_features={}
-
-    def fit(self, X, y=None):
-        for feature in self.features_to_group:
-            self.categ_features[feature] = X[feature].value_counts().index.to_list()[:self.features_to_group[feature]]
-        return self
-
-    def transform(self, X):
-        for feature in self.features_to_group:
-            X.loc[~X[feature].isin(self.categ_features), feature] = '<others>'
-        return X
-    
-    def fit_transform(self, X, y=None):
-        return self.fit(X,y).transform(X)
-
 
 
 class ConverteFloat:

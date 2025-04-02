@@ -34,11 +34,6 @@ def main():
     encoder = pickle.load(open(os.path.join(encoders_path_folder, 'encoder.pkl'), 'rb'))
     conversor_float = pickle.load(open(os.path.join(encoders_path_folder, 'conversor_float.pkl'), 'rb'))
 
-    # Carrega o agrupador (opcional)
-    grouper_path = os.path.join(encoders_path_folder, 'grouper.pkl')
-    grouper_object_exists = os.path.exists(grouper_path)
-    grouper = pickle.load(open(grouper_path, 'rb')) if grouper_object_exists else None
-
     logger.info('Lendo modelo preditivo.')
     model_path = os.path.join('models', 'predictors', 'model.pkl')
     modelo = pickle.load(open(model_path, 'rb'))
@@ -59,9 +54,6 @@ def main():
         ('seletor_3', seletor_2),
         ('modelo', modelo)
     ]
-
-    if grouper_object_exists:
-        pipeline_list.insert(pipeline_list.index(('encoder', encoder)), ('agrupador', grouper))
 
     pipeline_prod = Pipeline(steps=pipeline_list)
 
