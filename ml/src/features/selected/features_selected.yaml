@@ -1,25 +1,25 @@
 rejected_boruta:
-- campaign
-- contacts_tendency
 - day_of_week
-- default
 - education
-- employment_status
 - housing
-- job
 - loan
 - marital
-- poutcome
-- previous
-- quarter
 support_boruta:
 - age
+- campaign
 - cons.conf.idx
 - cons.price.idx
 - contact
+- contacts_tendency
+- default
 - emp.var.rate
+- employment_status
 - euribor3m
+- job
 - month
 - nr.employed
 - pdays
+- poutcome
+- previous
+- quarter
 - was_contacted_before
