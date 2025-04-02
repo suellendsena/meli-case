@@ -112,7 +112,7 @@ def main(configfile, dataset_name):
     logger.info('Sucesso! Binários salvos')
     logger.info('Salvando a base encodada')
 
-    df['y'] = target_series  # <- y agora é garantidamente mantida
+    df['y'] = target_series
     df.to_csv(os.path.join('data', 'train_test', 'train_encoded.csv'), index=False)
 
     logger.info('Sucesso! Base salva!')
