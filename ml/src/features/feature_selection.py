@@ -55,21 +55,13 @@ def main(configfile, dataset_name):
     df = df[sorted(df.columns)]
     logger.info(df.columns)
 
-    model = model = RandomForestClassifier(
-        max_depth=10,
-        min_samples_leaf=10,
-        class_weight='balanced',
-        n_jobs=-1,
-        random_state=96
-    )
-
+    model = RandomForestClassifier(max_depth=6, min_samples_leaf=100, class_weight= 'balanced', n_jobs=-1, random_state=96)
     feat_selector = BorutaPy(
         model,
-        n_estimators=100,
-        alpha=0.1, 
+        n_estimators=60,
         verbose=2,
         random_state=98,
-        max_iter=20,
+        max_iter=40,
     )
 
     feature_target = find_specific_variables(features, 'target', specific_value=True)
