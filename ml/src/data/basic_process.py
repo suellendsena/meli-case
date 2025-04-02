@@ -22,9 +22,12 @@ def main():
     df = df.drop_duplicates()
     logger.info(f'Linhas duplicadas removidas. Shape: {df.shape}.')
 
-    logger.info('Tratando target e valores nulos')
-    df["y"] = (df["y"]=="yes").astype(int)
-    df["y"] = df["y"].fillna(0)
+    logger.info("Ajustando valores da coluna 'default'.")
+    if 'default' in df.columns:
+        df['default'] = df['default'].replace({'yes': 'unknown'})
+        logger.info("Coluna 'default' ajustada com sucesso: 'yes' -> 'unknown'.")
+    else:
+        logger.warning("Coluna 'default' não encontrada na base.")
 
     logger.info("Salvando a base interim.")
     path_output = os.path.join('data', 'interim', f'meli_interim.csv')

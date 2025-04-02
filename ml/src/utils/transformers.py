@@ -16,7 +16,7 @@ def get_quarter(month: str) -> str:
     elif month in ['oct', 'nov', 'dec']:
         return '4Q'
     else:
-        'unknown'
+        return 'unknown'
 
 
 def calc_contacts_tendency(num: float, denom: float) -> float:
@@ -26,39 +26,52 @@ def calc_contacts_tendency(num: float, denom: float) -> float:
     elif denom == 0:
         return 0
     else:
-        return num/denom
+        return num / denom
+
+
+def categorize_employment(job: str) -> str:
+    not_employed = ['retired', 'student', 'unemployed']
+
+    """Classify employment status"""
+    if job in not_employed:
+        return 'not_employed'
+    elif job == 'unknown':
+        return 'unknown'
+    else:
+        return 'employed'
 
 
 class BuildFeatures(BaseEstimator, TransformerMixin):
+    """
+    Class to build features in production or training pipelines.
+    """
 
     def __init__(self, training=False):
-        "Class to build features in production"
         super().__init__()
-
         self.training = training
-    
+
     def __repr__(self):
         return "Object intended to build features"
-    
-    def fit(self, X):
+
+    def fit(self, X, y=None):
         return self
-    
+
     def transform(self, X):
         X = self.build_features(X)
         return X
 
-    def build_features(self, X):
-        def apply_to_features(X: pd.DataFrame) -> pd.DataFrame:
+    def build_features(self, X: pd.DataFrame) -> pd.DataFrame:
+        X = X.copy()
 
-            X["quarter"] = X["month"].apply(get_quarter)
-            X['contacts_tendency'] = X.apply(lambda x: calc_contacts_tendency(x['campaign'], x['previous']), axis=1)
+        X["quarter"] = X["month"].apply(get_quarter)
+        X["contacts_tendency"] = X.apply(lambda x: calc_contacts_tendency(x["campaign"], x["previous"]), axis=1)
+        X["employment_status"] = X["job"].apply(categorize_employment)
+        X["was_contacted_before"] = X["pdays"] != 999
 
-            return X
-        
         if self.training:
-            return apply_to_features(X)
+            return X
         else:
-            return apply_to_features(X)
+            return X
 
 
 class Json2DF:  

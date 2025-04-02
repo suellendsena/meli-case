@@ -31,7 +31,7 @@ day_of_week:
   descritiva: true
 
 duration:
-  hard_remove: true
+  auxiliar: true
 
 
 # Other attributes:
@@ -72,6 +72,12 @@ quarter:
   descritiva: true
 
 contacts_tendency:
+  descritiva: true
+
+employment_status: 
+  descritiva: true
+
+was_contacted_before:
   descritiva: true
 
 # target feature
