@@ -1,0 +1,17 @@
+# internal package
+-e .
+
+# external package
+Boruta==0.3
+click
+lightgbm==3.3.2
+matplotlib==3.7.5
+numpy==1.23.5
+optuna==3.4.0
+pandas==1.5.2
+requests==2.32.3
+shap==0.44.1
+scikit-learn==1.2.0
+seaborn==0.12.2
+xgboost==2.1.2
+imbalanced-learn==0.12.4

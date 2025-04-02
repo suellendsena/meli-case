@@ -1,0 +1,18 @@
+rejected_boruta:
+- day_of_week
+- housing
+- loan
+support_boruta:
+- age
+- campaign
+- contact
+- contacts_tendency
+- default
+- education
+- job
+- marital
+- month
+- pdays
+- poutcome
+- previous
+- quarter

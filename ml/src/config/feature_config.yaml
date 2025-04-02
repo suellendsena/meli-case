@@ -1,0 +1,81 @@
+# Meli client data:
+
+age:
+  descritiva: true
+
+job:
+  descritiva: true
+
+marital:
+  descritiva: true
+
+education:
+  descritiva: true
+
+default:
+  descritiva: true
+
+housing:
+  descritiva: true
+
+loan: 
+  descritiva: true
+
+contact:
+  descritiva: true
+
+month:
+  descritiva: true
+
+day_of_week:
+  descritiva: true
+
+duration:
+  hard_remove: true
+
+
+# Other attributes:
+
+campaign:
+  descritiva: true
+
+pdays:
+  descritiva: true
+
+previous:
+  descritiva: true
+
+poutcome:
+  descritiva: true
+
+
+# Social and economic context attributes
+
+emp.var.rate:
+  descritiva: true
+
+cons.price.idx:
+  descritiva: true
+
+cons.conf.idx:
+  descritiva: true
+
+euribor3m:
+  descritiva: true
+
+nr.employed:
+  descritiva: true
+
+
+# Features built in BuildFeatures
+quarter: 
+  descritiva: true
+
+contacts_tendency:
+  descritiva: true
+
+# target feature
+
+y:
+  target: true
+  bool: true

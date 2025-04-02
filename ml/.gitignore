@@ -1,0 +1,3 @@
+*.parquet
+*.egg-info/
+*.venv
