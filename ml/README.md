@@ -1,4 +1,4 @@
-Case Camapanha de Marketing Mercado Pago
+Case Campanha de Marketing Mercado Pago
 
 ==================================================
 
@@ -21,7 +21,7 @@ Inicialmente, foi realizada uma análise de volumetria e univariada da base *raw
 
 ## 2. Geração da base processada
 
-A finalidade dessa etapa é a construção de uma base pronta para o início do desenvolvimento do modelo, semelhante ao conceito de bases SOT. Então, o processo resultante proporcionará uma base pronta para consumo.
+A finalidade dessa etapa é a construção de uma base pronta para o início do desenvolvimento do modelo. Então, o processo resultante proporcionará uma base pronta para consumo.
 
 ```bash
 python src/data/basic_process.py
@@ -65,7 +65,7 @@ python src/features/create_encoder.py
 
 ## 8. *Model selection*
 
-Os modelos *baseline* propostos nesta etapa foram: Decision Tree, Random Forest, Gradient Boosting Trees, AdaBoost, XGBoost e LightGBM. Essas escolhas foram feitas devido ao desempenho superior desses algoritmos em comparação com modelos paramétricos, além de sua maior flexibilidade. Esses modelos não exigem a normalização das features, nem demandam atenção especial à correlação entre as variáveis preditoras, entre outros pré-requisitos comuns em outras abordagens. Ao final do processo, serão gerados [boxplots](reports/visualization) para comparar o desempenho dos modelos, utilizando a metodologia de validação cruzada. Para a abordagem de classificação, foi utilizada a validação cruzada estratificada, considerando o desbalanceamento da variável target. Essa técnica garante que a proporção das classes seja preservada em cada divisão, proporcionando uma avaliação mais consistente e representativa do desempenho do modelo. Por fim, foi avaliado técnicas de balanceamento de dados como *Oversampling*, *Undersampling* e *SMOTE (Synthetic Minority Over-sampling Technique)*
+Os modelos *baseline* propostos nesta etapa foram: Decision Tree, Random Forest, Gradient Boosting Trees, AdaBoost, XGBoost e LightGBM. Essas escolhas foram feitas devido ao desempenho superior desses algoritmos em comparação com modelos paramétricos, além de sua maior flexibilidade. Esses modelos não exigem a normalização das features, nem demandam atenção especial à correlação entre as variáveis preditoras, entre outros pré-requisitos comuns em outras abordagens. Para a abordagem de classificação, foi utilizada a validação cruzada estratificada, considerando o desbalanceamento da variável target. Essa técnica garante que a proporção das classes seja preservada em cada divisão, proporcionando uma avaliação mais consistente e representativa do desempenho do modelo. Por fim, foi avaliado técnicas de balanceamento de dados como *Oversampling*, *Undersampling* e *SMOTE (Synthetic Minority Over-sampling Technique)*
 
 ## 9. *Tunning* de hiperparâmetros
 
@@ -77,7 +77,7 @@ python src/models/tunning.py
 
 ## 10. *Model training*
 
-O modelo final será obtido nessa etapa, em [notebooks/09-Model.ipynb](notebooks/09-Model.ipynb).  Os modelos serão salvos como um arquivo `.pkl` na pasta `models/predictors` para ser utilizado posteriormente na análise de resultados.
+O modelo final será obtido nessa etapa, em [notebooks/05-Model.ipynb](notebooks/05-Model.ipynb).  Os modelos serão salvos como um arquivo `.pkl` na pasta `models/predictors` para ser utilizado posteriormente na análise de resultados.
 
 ## 11. Geração dos artefatos
 
@@ -91,7 +91,7 @@ python src/models/generate_artifacts.py
 
 ## 12. Análise dos resultados
 
-Os resultados obtidos podem ser consultados em [notebooks/10-Resultados.ipynb](notebooks/10-Resultados.ipynb), bem como breves análises a respeito das métricas e interpretações.
+Os resultados obtidos podem ser consultados em [notebooks/06-Resultados.ipynb](notebooks/06-Resultados.ipynb), bem como breves análises a respeito das métricas e interpretações.
 
 
 ------------
